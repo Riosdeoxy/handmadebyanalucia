@@ -3,8 +3,37 @@
   "name": "t:section_groups.footer.name",
   "sections": {
     "footer": {
-      "type": "footer"
+      "type": "footer",
+      "blocks": {
+        "brand": {
+          "type": "brand",
+          "settings": {
+            "logo": "shopify://shop_images/logo.jpg",
+            "text": "<p>Peças únicas, feitas à mão por Ana Lucia no Brasil.</p>"
+          }
+        },
+        "menu": {
+          "type": "menu",
+          "settings": {
+            "heading": "Navegue",
+            "menu": "footer"
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Novidades do ateliê"
+          }
+        }
+      },
+      "block_order": ["brand", "menu", "newsletter"],
+      "settings": {
+        "show_social": true,
+        "show_payment_icons": true,
+        "enable_localization": false
+      }
     }
   },
   "order": ["footer"]
 }
+

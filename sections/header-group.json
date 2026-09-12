@@ -2,9 +2,21 @@
   "type": "header",
   "name": "t:section_groups.header.name",
   "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "settings": {
+        "text": "Peças únicas, feitas à mão no Brasil"
+      }
+    },
     "nav": {
-      "type": "nav"
+      "type": "nav",
+      "settings": {
+        "menu": "main-menu",
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
     }
   },
-  "order": ["nav"]
+  "order": ["announcement", "nav"]
 }
+

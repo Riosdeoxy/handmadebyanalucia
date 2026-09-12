@@ -1,0 +1,28 @@
+<section class="hm-manifesto section-pad">
+  <div class="page-width hm-manifesto__inner">
+    <p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <blockquote class="display">{{ section.settings.text | escape }}</blockquote>
+    {%- if section.settings.signature != blank -%}<p class="hm-manifesto__signature">{{ section.settings.signature | escape }}</p>{%- endif -%}
+  </div>
+</section>
+
+<style>
+  .hm-manifesto { background: var(--brown); color: var(--paper); }
+  .hm-manifesto__inner { max-width: 1260px; text-align: center; }
+  .hm-manifesto .eyebrow { color: var(--blush); }
+  .hm-manifesto blockquote { max-width: 1080px; margin: 28px auto; font-size: clamp(2.8rem, 6vw, 6.6rem); }
+  .hm-manifesto__signature { margin: 0; color: var(--sand); font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; }
+</style>
+
+{% schema %}
+{
+  "name": "Manifesto Handmade",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Linha superior", "default": "Nosso manifesto" },
+    { "type": "textarea", "id": "text", "label": "Frase", "default": "Não produzimos apenas bolsas. Criamos peças que carregam tempo, cuidado e a história de quem as fez." },
+    { "type": "text", "id": "signature", "label": "Assinatura", "default": "Handmade by Ana Lucia" }
+  ],
+  "presets": [{ "name": "Manifesto Handmade" }]
+}
+{% endschema %}
+

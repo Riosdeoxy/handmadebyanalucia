@@ -198,3 +198,70 @@ textarea.field__input {
 .rte a { color: var(--color-accent); }
 .rte img { max-width: 100%; height: auto; border-radius: var(--media-radius); }
 .rte ul, .rte ol { padding-left: 1.5em; }
+
+/* Handmade by Ana Lucia — editorial design system */
+html { scroll-behavior: smooth; }
+body {
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .015em;
+}
+
+.display {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: -.055em;
+  line-height: .96;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.section-pad { padding-top: clamp(76px, 9vw, 138px); padding-bottom: clamp(76px, 9vw, 138px); }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 30px; margin-bottom: clamp(34px, 5vw, 68px); }
+.section-head h2 { margin: 12px 0 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 5.5vw, 6rem); font-weight: 400; letter-spacing: -.05em; line-height: .95; }
+.link-arrow { display: inline-block; color: inherit; border-bottom: 1px solid currentColor; font-size: .69rem; font-weight: 600; letter-spacing: .14em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
+.link-arrow:hover { color: var(--terracotta); }
+
+.button,
+button.button {
+  padding: 13px 26px;
+  font-family: var(--font-body-family);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.button--light { color: var(--brown); background: var(--paper); border-color: var(--paper); }
+.button--light:hover { color: var(--paper); background: transparent; opacity: 1; }
+
+.product-grid { gap: 10px; }
+.card-product__media { border-radius: 0; }
+.card-product__image { transition: opacity .3s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+.card-product:hover .card-product__image--primary { transform: scale(1.02); }
+.card-product__badge { border-radius: 0; font-size: .6rem; letter-spacing: .1em; }
+.card-product__info { padding: 14px 2px 22px; }
+.card-product__title { margin-bottom: 7px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.05rem, 1.5vw, 1.35rem); }
+.price--card { color: var(--muted); font-size: .76rem; letter-spacing: .04em; }
+.featured-collection { padding-top: clamp(76px, 9vw, 138px) !important; padding-bottom: clamp(76px, 9vw, 138px) !important; }
+.featured-collection__header { margin-bottom: clamp(34px, 5vw, 68px) !important; }
+.featured-collection__heading { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 5.5vw, 6rem) !important; font-weight: 400; letter-spacing: -.05em; line-height: .95; }
+
+@media (max-width: 749px) {
+  .page-width { padding-right: 16px; padding-left: 16px; }
+  .section-head { display: block; }
+  .section-head .link-arrow { margin-top: 20px; }
+  .product-grid { gap: 8px; row-gap: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+

@@ -1,0 +1,62 @@
+<section class="hm-process section-pad">
+  <div class="page-width">
+    <div class="section-head hm-process__head">
+      <div><p class="eyebrow">{{ section.settings.eyebrow | escape }}</p><h2>{{ section.settings.heading | escape }}</h2></div>
+      {%- if section.settings.text != blank -%}<div class="rte hm-process__lead">{{ section.settings.text }}</div>{%- endif -%}
+    </div>
+    <div class="hm-process__grid">
+      <div class="hm-process__steps">
+        {%- for block in section.blocks -%}
+          <article class="hm-process__step" {{ block.shopify_attributes }}>
+            <span>0{{ forloop.index }}</span>
+            <div><h3>{{ block.settings.heading | escape }}</h3><p>{{ block.settings.text | escape }}</p></div>
+          </article>
+        {%- endfor -%}
+      </div>
+      <div class="hm-process__media">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1600 | image_tag: widths: '600, 900, 1200, 1600', sizes: '(min-width: 900px) 58vw, 100vw', loading: 'lazy', alt: section.settings.image_alt }}
+        {%- else -%}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hm-process { background: var(--paper); }
+  .hm-process__head { align-items: end; }
+  .hm-process__lead { max-width: 430px; color: var(--muted); line-height: 1.7; }
+  .hm-process__grid { display: grid; grid-template-columns: minmax(260px, .7fr) minmax(0, 1.3fr); gap: clamp(40px, 7vw, 110px); align-items: stretch; }
+  .hm-process__steps { border-top: 1px solid var(--color-border); }
+  .hm-process__step { display: grid; grid-template-columns: 42px 1fr; gap: 16px; padding: 26px 0; border-bottom: 1px solid var(--color-border); }
+  .hm-process__step > span { color: var(--terracotta); font-family: Georgia, serif; font-style: italic; }
+  .hm-process__step h3 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 1.65rem; font-weight: 400; }
+  .hm-process__step p { margin: 0; color: var(--muted); line-height: 1.6; }
+  .hm-process__media { min-height: 590px; overflow: hidden; }
+  .hm-process__media img, .hm-process__media svg { width: 100%; height: 100%; min-height: 590px; display: block; object-fit: cover; }
+  @media (max-width: 899px) { .hm-process__head { display: block; } .hm-process__lead { margin-top: 20px; } .hm-process__grid { grid-template-columns: 1fr; } .hm-process__media, .hm-process__media img, .hm-process__media svg { min-height: 420px; } }
+</style>
+
+{% schema %}
+{
+  "name": "Processo Handmade",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Imagem" },
+    { "type": "text", "id": "image_alt", "label": "Descrição da imagem", "default": "Processo artesanal de crochê" },
+    { "type": "text", "id": "eyebrow", "label": "Linha superior", "default": "Do fio à peça" },
+    { "type": "text", "id": "heading", "label": "Título", "default": "Como nasce uma Handmade." },
+    { "type": "richtext", "id": "text", "label": "Introdução", "default": "<p>Um processo consciente, paciente e humano — do primeiro fio ao último acabamento.</p>" }
+  ],
+  "blocks": [
+    { "type": "step", "name": "Etapa", "settings": [
+      { "type": "text", "id": "heading", "label": "Título", "default": "A matéria" },
+      { "type": "textarea", "id": "text", "label": "Texto", "default": "Fios escolhidos pela textura, cor e durabilidade." }
+    ] }
+  ],
+  "presets": [{ "name": "Processo Handmade", "blocks": [{ "type": "step" }, { "type": "step" }, { "type": "step" }] }]
+}
+{% endschema %}
+

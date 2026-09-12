@@ -1,0 +1,24 @@
+{%- if section.settings.text != blank -%}
+  <aside class="hm-announcement" aria-label="{{ 'sections.header.announcement' | t }}">
+    {%- if section.settings.link != blank -%}<a href="{{ section.settings.link }}">{%- endif -%}
+      <span>{{ section.settings.text | escape }}</span>
+    {%- if section.settings.link != blank -%}</a>{%- endif -%}
+  </aside>
+{%- endif -%}
+
+<style>
+  .hm-announcement { padding: 9px 20px; text-align: center; background: var(--sand); border-bottom: 1px solid var(--color-border); }
+  .hm-announcement, .hm-announcement a { color: var(--brown); font-size: .66rem; font-weight: 600; letter-spacing: .2em; line-height: 1.5; text-decoration: none; text-transform: uppercase; }
+</style>
+
+{% schema %}
+{
+  "name": "Barra de anúncio",
+  "settings": [
+    { "type": "text", "id": "text", "label": "Texto", "default": "Peças únicas, feitas à mão no Brasil" },
+    { "type": "url", "id": "link", "label": "Link" }
+  ],
+  "presets": [{ "name": "Barra de anúncio" }]
+}
+{% endschema %}
+
